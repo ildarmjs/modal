@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
+import './App.scss'
+import { Button } from './components/Button'
+import { Modal } from './components/Modal'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [open, setOpen] = useState(false)
+
+	return (
+		<div className='App'>
+			<Button setOpen={setOpen}/>
+			<Modal open={open} setOpen={setOpen}>
+				<img src='https://i.gifer.com/7e2Z.gif' />
+				<h3>Это модальное окно</h3>
+			</Modal>
+		</div>
+	)
 }
 
-export default App;
+export default App
